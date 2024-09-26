@@ -4,7 +4,7 @@ services:
     # Required when running on platform other than amd64, like Apple M1/M2:
     # platform: linux/amd64
     env_file:
-      - ./docker/.env
+      - .env
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: directus
@@ -41,7 +41,7 @@ services:
       cache:
         condition: service_healthy
     env_file:
-      - ./docker/.env
+      - .env
     environment:
       SECRET: ${SECRET}
 
