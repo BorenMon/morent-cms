@@ -1,6 +1,6 @@
 services:
   database:
-    image: mariadb:lts-ubi9
+    image: mysql:latest
     # Required when running on platform other than amd64, like Apple M1/M2:
     # platform: linux/amd64
     env_file:
