@@ -1,8 +1,6 @@
 services:
   database:
     image: mariadb:lts-ubi9
-    # Required when running on platform other than amd64, like Apple M1/M2:
-    # platform: linux/amd64
     env_file:
       - .env
     environment:
@@ -19,6 +17,9 @@ services:
       start_period: 30s
     volumes:
       - mariadb-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: always
 
   cache:
     image: redis:6
@@ -29,6 +30,7 @@ services:
       retries: 5
       start_interval: 5s
       start_period: 30s
+    restart: always
 
   directus:
     image: directus/directus:11.1.0
@@ -61,6 +63,7 @@ services:
 
       ADMIN_EMAIL: ${ADMIN_EMAIL}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    restart: always
 
 volumes:
   directus-uploads:
