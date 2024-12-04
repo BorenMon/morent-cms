@@ -9,6 +9,9 @@ ARCHIVE_FILE="$BACKUP_DIR/uploads.tar.gz"
 CONTAINER_NAME_DB="morent-cms-database-1"
 CONTAINER_NAME_DIRECTUS="morent-cms-directus-1"
 
+DB_USER="$1"
+DB_PASSWORD="$2"
+
 # Step 1: Ensure backup directory exists
 echo "Ensuring backup directory exists..."
 mkdir -p $BACKUP_DIR
