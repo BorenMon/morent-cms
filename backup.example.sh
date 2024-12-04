@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# Variables
-BACKUP_DIR="/root/morent-cms/backup"
+# Variables (Update these before running the script)
+BACKUP_DIR="/path/to/backup/directory" # Replace with the path to your backup directory
 SQL_BACKUP_FILE="$BACKUP_DIR/database.sql"
 UPLOADS_BACKUP_DIR="$BACKUP_DIR/uploads"
 ARCHIVE_FILE="$BACKUP_DIR/uploads.tar.gz"
 
-CONTAINER_NAME_DB="morent-cms-database-1"
-CONTAINER_NAME_DIRECTUS="morent-cms-directus-1"
-# Load environment variables
+CONTAINER_NAME_DB="your-database-container-name" # Replace with the name of your database container
+CONTAINER_NAME_DIRECTUS="your-directus-container-name" # Replace with the name of your Directus container
+
+# Load environment variables (Ensure the .env file is properly configured)
 if [ -f .env ]; then
   export $(grep -v '^#' .env | xargs)
 fi

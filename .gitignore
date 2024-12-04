@@ -1,2 +1,4 @@
 .env
+backup.sh
 restore.sh
+backup/uploads
