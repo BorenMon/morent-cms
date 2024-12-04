@@ -15,7 +15,7 @@ mkdir -p $BACKUP_DIR
 
 # Step 2: Export the database
 echo "Exporting the database..."
-docker exec $CONTAINER_NAME_DB mariadb-dump -u${DB_USER} -p${DB_PASSWORD} directus > $SQL_BACKUP_FILE
+docker exec $CONTAINER_NAME_DB /usr/bin/mariadb-dump -u${DB_USER} -p${DB_PASSWORD} directus > $SQL_BACKUP_FILE
 if [ $? -ne 0 ]; then
   echo "Database export failed."
   exit 1
