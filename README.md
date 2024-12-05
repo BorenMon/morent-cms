@@ -128,5 +128,3 @@ The following Docker volumes are used for data persistence:
 
 - Make sure to exclude sensitive files or backups from public repositories unless they are secured.
 - For production deployments, ensure `PUBLIC_URL` is set to the accessible URL of your Directus instance.
-
---- 
