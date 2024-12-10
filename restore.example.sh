@@ -33,11 +33,11 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# Extract Media Files
+# Extract Media Files (flattening directory structure)
 echo "Extracting media files..."
 rm -rf "$EXTRACTED_MEDIA_DIR"  # Ensure the extraction directory is clean
 mkdir -p "$EXTRACTED_MEDIA_DIR"
-tar -xzf "$MEDIA_ARCHIVE" -C "$EXTRACTED_MEDIA_DIR"
+tar --strip-components=1 -xzf "$MEDIA_ARCHIVE" -C "$EXTRACTED_MEDIA_DIR"
 if [[ $? -ne 0 ]]; then
     echo "Error: Failed to extract media files."
     exit 1
